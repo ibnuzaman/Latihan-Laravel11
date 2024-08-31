@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite('resources/css/app.css')
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <title>Home Page</title>
+    <title>{{ $title }}</title>
 </head>
 
 <body h-full>
