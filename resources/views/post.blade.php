@@ -10,7 +10,7 @@
             </h2>
         </a>
         <div class="text-base text-gray-500">
-            <a>| {{ $post['publish'] }} </a>
+            <a>{{ $post['author'] }} | {{ $post->created_at->diffForHumans() }} </a>
         </div>
         <p class="my-4 font-light">{{ $post['body'] }}
             <a href="/posts" class="font-medim text-blue-500 hover:underline">Back &laquo;</a>

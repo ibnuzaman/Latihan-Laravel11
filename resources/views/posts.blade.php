@@ -11,7 +11,8 @@
                 </h2>
             </a>
             <div class="text-base text-gray-500">
-                <a href="/post/{{ $post['author'] }}">| {{ $post['publish'] }} </a>
+                <a href="/post/{{ $post['author'] }}"> {{ $post['author'] }} | {{ $post->created_at->diffForHumans() }}
+                </a>
             </div>
             <p class="my-4 font-light">{{ Str::limit($post['body'], 50) }}
                 <a href="post/{{ $post['slug'] }}" class="font-medim text-blue-500 hover:underline">Read more</a>
