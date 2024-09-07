@@ -11,7 +11,8 @@
                 </h2>
             </a>
             <div class="text-base text-gray-500">
-                <a href="/post/{{ $post['author'] }}"> {{ $post['author'] }} | {{ $post->created_at->diffForHumans() }}
+                <a href="/author/{{ $post->author->id }}"> {{ $post->author->name }} |
+                    {{ $post->created_at->diffForHumans() }}
                 </a>
             </div>
             <p class="my-4 font-light">{{ Str::limit($post['body'], 50) }}

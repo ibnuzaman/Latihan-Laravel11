@@ -1,6 +1,7 @@
 <?php
 
-use App\Models\Posts;
+use App\Models\Post;
+use App\Models\User;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
 
@@ -13,14 +14,14 @@ Route::get('/about', function () {
 Route::get('/posts', function () {
     return view('posts', [
         'title' => 'Blog',
-        'posts' => Posts::all()
+        'posts' => Post::all(),
     ]);
 });
 Route::get('/contact', function () {
     return view('contact', ['title' => 'Contact']);
 });
 
-Route::get('/post/{post:slug}', function (Posts $post) {
+Route::get('/post/{post:slug}', function (Post $post) {
 
 
     // $post = Arr::first(Posts::all(), function ($post) use ($slug) {
@@ -30,4 +31,8 @@ Route::get('/post/{post:slug}', function (Posts $post) {
     // $post = collect(Posts::all())->firstWhere('slug', $slug);
 
     return view('post', ['title' => 'Detail Post', 'post' => $post]);
+});
+
+Route::get('/author/{user}', function (User $user) {
+    return view('posts', ['title' => 'Artikel by ' . $user->name, 'posts' => $user->posts]);
 });
